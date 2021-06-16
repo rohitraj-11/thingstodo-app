@@ -1,0 +1,74 @@
+.container{
+    width: vw;
+    height: auto;
+}
+
+.login-form{
+    top: 20vh;
+    background: #F2F3F4;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+
+.signup-form{
+    top: 8vh;
+    background:#F2F3F4;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+
+.bg{
+    background-color: #5D6D7E;
+    width: vw;
+    height: auto;
+    background-size: 100%;
+}
+
+.row{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.column{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    height: auto;
+    flex: 1;
+}
+
+.forgot-password{
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+.mh-1{
+    color: white;
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.mh-2{
+    color: silver;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 28px;
+}
+
+#navbar-nav{
+    margin-left: auto;
+}
+
+.add-task-btn{
+    padding-top: 20px;
+}
+
+.bg-tasks{
+    background-color: #5D6D7E;
+    width: 100%;
+    height: 1500%;
+    background-size: 100%;
+}
