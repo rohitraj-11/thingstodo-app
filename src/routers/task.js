@@ -65,7 +65,9 @@ router.get('/tasks/:id', auth, async (req, res) => {
         if (!task) {
             return res.status(404).send()
         }
-        res.send(task)
+        //res.send(task)
+        var flag = task.completed
+        res.render('editTask', {task, flag})
     } catch (e) {
         res.status(500).send()
     }
@@ -89,10 +91,28 @@ router.patch('/tasks/:id', auth, async (req, res) => {
 
         updates.forEach((update) => task[update] = req.body[update])
         await task.save()
-        res.send(task)
+        res.redirect('/tasks')
     } catch (e) {
         res.status(400).send(e)
     }
+    // const _id = req.params.id
+    // try {
+    //     const blog = await Blog.findOne({ _id }).populate('owner').exec()
+    //     // console.log(blog)
+    //     if(!blog)   {
+    //         res.status(404).send()
+    //     }
+    //     let flag = blog.owner._id.equals(req.user._id)
+    //     if(!flag)   {
+    //         res.status(403).send()
+    //     }
+    //     blog.title = req.body.title
+    //     blog.body = req.body.body
+    //     await blog.save();
+    //     res.redirect('/myblogs')
+    // }   catch (e) {
+    //     res.status(500).send()
+    // }
 })
 
 router.delete('/tasks/:id', auth, async (req, res) => {
