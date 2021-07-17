@@ -3,8 +3,9 @@ const Task = require('../models/task')
 const auth =require('../middleware/auth')
 const router = new express.Router()
 
-router.get('/tasks/addTasks',(req,res) => {
-    res.render('addTasks')
+router.get('/tasks/addTasks', auth, async (req,res) => {
+    const name = req.user.name
+    res.render('addTasks', {name})
 }) 
 
 router.post('/tasks', auth, async (req, res) => {
@@ -49,8 +50,9 @@ router.get('/tasks', auth, async (req, res) => {
             }
         }).execPopulate()
         const tasks = req.user.tasks
+        const name = req.user.name
         console.log(tasks)
-        res.render('tasks',{tasks})
+        res.render('tasks',{tasks, name})
         //res.send(req.user.tasks)
     } catch (e) {
         res.status(500).send()
@@ -67,7 +69,8 @@ router.get('/tasks/:id', auth, async (req, res) => {
         }
         //res.send(task)
         var flag = task.completed
-        res.render('editTask', {task, flag})
+        const name = req.user.name
+        res.render('editTask', {task, flag, name})
     } catch (e) {
         res.status(500).send()
     }
